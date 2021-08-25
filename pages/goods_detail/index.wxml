@@ -1,0 +1,43 @@
+<!-- 轮播图 -->
+<view class="detail-swiper">
+    <swiper
+    autoplay
+    circular
+    indicator-dots>
+        <swiper-item
+        wx:for='{{goodsDetail.pics}}'
+        wx:key='pics_id'
+        bindtap='handlePreviewImage'
+        data-currenturl='{{item.pics_mid}}'>
+            <image src="{{item.pics_mid}}" mode="widthFix"/>
+        </swiper-item>    
+    </swiper>
+</view>
+
+<!-- 商品信息 -->
+<view class="detail-info">
+    <!-- 价格 -->
+    <view class="info-price">
+        ￥{{goodsDetail.goods_price}}
+    </view>
+    <view class="info-row">
+        <!-- 左边标题 -->
+        <view class="info-title">
+            {{goodsDetail.goods_name}}
+        </view>
+        <!-- 右侧收藏 -->
+        <view class="info-collect">
+            <text class="iconfont icon-shoucang1" ></text>
+            <view>收藏</view>
+        </view>
+    </view>
+
+</view>
+
+<!-- 图文详情 -->
+<view class="goods-info">
+    <view class="goods-info-title">图文详情</view>
+    <rich-text 
+    nodes="{{goodsDetail.goods_introduce}}">
+    </rich-text>
+</view>

@@ -1,0 +1,20 @@
+/* 引入图标字体 */
+@import './styles/iconfont.wxss';
+
+/* 格式化默认样式 */
+page,view,text,swiper,swiper-item,navigator,image{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 定义全局变量 */
+page{
+    /* 全局背景颜色 */
+    --themeColor: #ff2d4a;
+    /* 字体大小 */
+    font-size: 28rpx;
+}
+image{
+    width: 100%;
+}

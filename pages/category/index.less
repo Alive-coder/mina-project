@@ -1,0 +1,59 @@
+page{
+    height: 100%;
+}
+
+.cates{
+    height: 100%;
+    .cates-container{
+        /* 使用  ~' '  可以不对其中的式子进行运算4 */
+        height: ~'calc(100vh - 90rpx)';
+        display: flex;
+        .leftMenu{
+            flex: 2;
+            .menu_item{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80rpx;
+                font-size: 30rpx;
+                color: rgb(88, 88, 88);
+            }
+            .isActive{
+                color: var(--themeColor);
+                border-left: 7rpx solid currentColor;
+            }
+        }
+        .rightContent{
+            flex: 5;
+            .content-item{
+                .content-item-title{
+                    height: 80rpx;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: rgb(88, 88, 88);
+                    .title-icon{
+                        padding: 0 10rpx;
+                        color: #ccc;
+                    }
+                }
+                
+            }
+            .content-item-list{
+                display: flex;
+                flex-wrap: wrap;
+                navigator{
+                    width: 33.33%;
+                    text-align: center;
+                    padding-bottom: 30rpx;
+                    image{
+                        width: 50%;
+                    }
+                    .list-title{
+                        font-size: 25rpx;
+                    }
+                }
+            }
+        }
+    }
+}
