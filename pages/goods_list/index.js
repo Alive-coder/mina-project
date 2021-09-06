@@ -82,7 +82,9 @@ Page({
   onLoad: function (options) {
     // options 就存储着 url 传递过来的参数
     // console.log(options)
-    this.QueryParams.cid = options.cid
+    this.QueryParams.cid = options.cid || ''
+    this.QueryParams.query = options.query || ''
+
 
     this.getGoodsList()
   },

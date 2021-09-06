@@ -26,8 +26,8 @@
             {{goodsDetail.goods_name}}
         </view>
         <!-- 右侧收藏 -->
-        <view class="info-collect">
-            <text class="iconfont icon-shoucang1" ></text>
+        <view class="info-collect" bindtap='collectChange'>
+            <text class="iconfont {{isCollect? 'icon-shoucang': 'icon-shoucang1'}} " ></text>
             <view>收藏</view>
         </view>
     </view>
@@ -40,4 +40,29 @@
     <rich-text 
     nodes="{{goodsDetail.goods_introduce}}">
     </rich-text>
+</view>
+
+<!-- 底部工具栏 -->
+<view class="btm-tools">
+    <view class="btm-service">
+        <view class="iconfont icon-fuwudingdanxiangqing-kefu"></view>
+        <text >客服</text>
+        <button open-type='contact'></button>
+    </view>
+    <view class="btm-share">
+        <view class="iconfont icon-fenxiang"></view>
+        <text >分享</text>
+        <button open-type='share'></button>
+    </view>
+    <navigator 
+    class="btm-shopping"
+    url='/pages/cart/index'
+    open-type='switchTab'>
+        <view class="iconfont icon-che-copy"></view>
+        <text >购物车</text>
+    </navigator>
+    <view 
+    class="btm-in-shopping"
+    bindtap='handleAddCart'>加入购物车</view>
+    <view class="btm-buy">立即购买</view>
 </view>

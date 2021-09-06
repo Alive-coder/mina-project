@@ -1,2 +1,63 @@
-<!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<!-- 添加收货地址 -->
+<view class="address-wrapper">
+    <!-- 显示地址信息 -->
+    <view class="address-info">
+        <!-- 左侧用户信息 -->
+        <view class="user-info">
+            <view class="user-name">收货人: {{address.userName}}</view>
+            <view class="user-address">{{address.allAddress}}</view>
+        </view>
+        <!-- 右侧电话信息 -->
+        <view class="user-phone">
+            {{address.telNumber}}
+        </view>
+    </view>
+</view>
+
+<!-- 购物车信息 -->
+<view class="cart-wrapper">
+    <!-- 购物车标题 -->
+    <view class="cart-title">购物车</view>
+    <!-- 购物车内容 -->
+    <view class="cart-main">
+        <!-- 如果购物车中有商品就显示商品没有商品就显示购物车空的图片 -->
+            <view class="cart-item" wx:for='{{cart}}' wx:key='goods_id'>
+                <!-- 中间图片 -->
+                <view class="cart-center-img">
+                    <image src="{{item.goods_small_logo}}" mode="widthFix" />
+                </view>
+                <!-- 右边商品信息和数量 -->
+                <view class="cart-right-info">
+                    <!-- 商品标题 -->
+                    <view class="goods-title">
+                        {{item.goods_name}}
+                    </view>
+                    <!-- 商品价格和数量 -->
+                    <view class="goods-price-wrapper">
+                        <view class="goods-price">￥{{item.goods_price}}</view>
+                        <!-- 商品数量 -->
+                        <view class="goods-num-wrapper">
+                            
+                            <view class="goods-num"> X {{item.num}}</view>
+                            
+                        </view>
+                    </view>
+                </view>
+            </view>
+    </view>
+</view>
+
+<!-- 底部结算工具 -->
+<view class="foot-tools">
+    <!-- 中间合计 -->
+    <view class="center-price">
+        <view class="center-total-price">合计:
+            <text class="price">￥ {{totalPrice}}</text>
+        </view>
+        <view class="freight">包含运费</view>
+    </view>
+    <!-- 右侧结算按钮 -->
+    <view class="right-to-buy">
+        支付({{totalNum}})
+    </view>
+</view>

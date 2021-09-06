@@ -1,1 +1,69 @@
-/* pages/feedback/index.wxss */
+page {
+  background-color: #eee;
+}
+.fb-main {
+  color: #555;
+  padding: 15rpx 20rpx ;
+}
+.fb-main .fb-title {
+  margin-bottom: 15rpx;
+}
+.fb-main .fb-tips {
+  display: flex;
+  flex-wrap: wrap;
+}
+.fb-main .fb-tips text {
+  width: 30%;
+  background-color: #fff;
+  text-align: center;
+  margin: 10rpx;
+  padding: 10rpx;
+}
+.fb-main .fb-content {
+  margin-top: 20rpx;
+}
+.fb-main .fb-content textarea {
+  background-color: #fff;
+  padding: 20rpx;
+  width: 94.5%;
+}
+.fb-main .fb-content .addImg {
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20rpx;
+}
+.fb-main .fb-content .addImg button {
+  margin: 0;
+  width: 90rpx;
+  height: 90rpx;
+  color: #666;
+  font-size: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx;
+  margin-left: 20rpx;
+  border: 1px solid #777;
+}
+.fb-main .fb-content .addImg .upImg-wrap {
+  margin-left: 25rpx;
+}
+.fb-main .commit-wrap {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.fb-main .commit-wrap .commit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20rpx;
+  width: 30%;
+  background-color: var(--themeColor);
+  color: #fff;
+}
+.fb-main .commit-wrap .commit-btn icon {
+  padding-right: 10rpx;
+}

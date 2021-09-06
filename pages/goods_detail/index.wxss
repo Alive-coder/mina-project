@@ -1,3 +1,6 @@
+page {
+  padding-bottom: 90rpx;
+}
 .detail-swiper swiper {
   height: 70vw;
   text-align: center;
@@ -34,9 +37,80 @@
   align-items: center;
   border-left: 1px solid #000;
 }
+.detail-info .info-row .info-collect .icon-shoucang {
+  color: orangered;
+}
 .goods-info .goods-info-title {
   font-size: 34rpx;
   font-weight: 500;
   color: var(--themeColor);
   padding: 15rpx;
+}
+/* 底部工具栏 */
+.btm-tools {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  width: 100%;
+  height: 90rpx;
+  font-size: 22rpx;
+}
+.btm-tools .btm-service {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.btm-tools .btm-service button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.btm-tools .btm-share {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.btm-tools .btm-share button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.btm-tools .btm-shopping {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btm-tools .btm-in-shopping {
+  flex: 2;
+  background-color: #ffa300;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: 500;
+}
+.btm-tools .btm-buy {
+  flex: 2;
+  background-color: #f8554d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: 500;
 }

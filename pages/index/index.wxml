@@ -8,7 +8,7 @@
           class="index-swiper-item"
           wx:for='{{swiperList}}'
           wx:key='goods_id'>
-      <navigator >
+      <navigator url='pages/goods_detail/index?goods_id=43981'>
         <image  src="{{item.image_src}}" mode='widthFix'/>
       </navigator>
     </swiper-item>
@@ -18,7 +18,9 @@
   <view class="index-carts">
     <navigator class="index-carts-nav"
                 wx:for='{{cartsList}}'
-                wx:key='name'>
+                wx:key='name'
+                url='/pages/category/index'
+                open-type='switchTab'>
       <image  src="{{item.image_src}}" mode="widthFix" />
     </navigator>
   </view>
@@ -40,7 +42,8 @@
                   wx:for='{{item1.product_list}}'
                   wx:for-index='index2'
                   wx:for-item='item2'
-                  wx:key='index2'>
+                  wx:key='index2'
+                  url='{{item2.navigator_url}}'>
           <image src="{{item2.image_src}}" mode="{{index2===0?'widthFix':'scaleToFill'}}" />
         </navigator>
           

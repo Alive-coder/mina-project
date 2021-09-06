@@ -1,2 +1,79 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<!-- 个人信息外部·容器· -->
+<view class="user-info-wrap" wx:>
+    <!-- 背景图片 -->
+    <view class="user-bg-wrap">
+        <image  class="user-bg" src="{{userinfo.image}}" />
+    </view>
+    <!-- 用户信息 -->
+    <view class="user-info">
+        <image class="user-info-icon" src='{{userinfo.image}}' />
+        <view class="user-name">{{userinfo.name}}</view>
+    </view>
+</view>
+
+<!-- 内容外部容器 -->
+<view class="order-wrap">
+    <!-- 内容 -->
+    <view class="order-main">
+        <!-- 历史足迹-->
+        <view class="order-history">
+            <navigator   url="">
+                <view class="order-num">0</view>
+                <view class="order-name">收藏的店铺</view>
+            </navigator>
+            <navigator   url="/pages/collect/index">
+                <view class="order-num">{{collectNums}}</view>
+                <view class="order-name">收藏的商品</view>
+            </navigator>
+            <navigator   url="">
+                <view class="order-num">0</view>
+                <view class="order-name">关注的商品</view>
+            </navigator>
+            <navigator   url="">
+                <view class="order-num">0</view>
+                <view class="order-name">我的足迹</view>
+            </navigator>
+              
+        </view>
+        <!-- 我的订单 -->
+        <view class="orders-wrap">
+            <view class="orders-title">我的订单</view>
+            <view class="orders-content">
+                <navigator  url="/pages/order/index?type=1">
+                    <view class="iconfont icon-dingdan_active"></view>
+                    <view class="orders-text">全部订单</view>
+                </navigator>
+                <navigator  url="/pages/order/index?type=2">
+                    <view class="iconfont icon-fukuantongzhi"></view>
+                    <view class="orders-text">代付款</view>
+                </navigator>
+                <navigator  url="/pages/order/index?type=3">
+                    <view class="iconfont icon-che-copy"></view>
+                    <view class="orders-text">代收货</view>
+                </navigator>
+                <navigator  url="">
+                    <view class="iconfont icon-tuihuokuan"></view>
+                    <view class="orders-text">退货/退款</view>
+                </navigator>
+                  
+            </view>
+        </view>
+        <!-- 收货地址管理 -->
+        <view class="address-info">
+            收货地址管理
+        </view>
+        <!-- 帮助 -->
+        <view class="help-wrap">
+            <view class="help-item contact">
+                <text >联系客服</text>
+                <text >400-618-4000</text>
+            </view>
+            <navigator url='/pages/feedback/index' class="help-item">意见反馈</navigator>
+            <view class="help-item">关于我们</view>
+        </view>
+        <!-- 把应用推荐给其他人 -->
+        <view class="recommend">
+            把应用推荐给其他人
+        </view>
+    </view>
+</view>

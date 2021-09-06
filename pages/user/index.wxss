@@ -1,1 +1,101 @@
-/* pages/user/index.wxss */
+page {
+  background-color: #ebece7;
+  color: #666;
+  font-size: 26rpx;
+}
+.user-info-wrap {
+  height: 45vh;
+  position: relative;
+}
+.user-info-wrap .user-bg-wrap .user-bg {
+  height: 45vh;
+  filter: blur(10rpx);
+}
+.user-info-wrap .user-info {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 140rpx;
+  text-align: center;
+}
+.user-info-wrap .user-info .user-info-icon {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.user-info-wrap .user-info .user-name {
+  color: #fff;
+  margin-top: 30rpx;
+  font-size: 34rpx;
+}
+.order-wrap {
+  position: relative;
+}
+.order-wrap .order-main {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -50rpx;
+  width: 90%;
+  margin-bottom: 30rpx;
+}
+.order-wrap .order-main .order-history {
+  background-color: #fff;
+  text-align: center;
+  display: flex;
+}
+.order-wrap .order-main .order-history navigator {
+  flex: 1;
+  padding: 10rpx 0;
+}
+.order-wrap .order-main .order-history navigator .order-num {
+  color: var(--themeColor);
+}
+.order-wrap .order-main .order-history navigator .order-name {
+  color: #666;
+  font-size: 26rpx;
+}
+.order-wrap .order-main .orders-wrap {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.order-wrap .order-main .orders-wrap .orders-title {
+  padding: 18rpx;
+  border-bottom: 1px solid #ccc;
+  color: #555;
+}
+.order-wrap .order-main .orders-wrap .orders-content {
+  display: flex;
+  text-align: center;
+  padding: 10rpx 0;
+}
+.order-wrap .order-main .orders-wrap .orders-content navigator {
+  flex: 1;
+}
+.order-wrap .order-main .orders-wrap .orders-content navigator .iconfont {
+  color: var(--themeColor);
+  font-size: 38rpx;
+  margin-bottom: 5rpx;
+}
+.order-wrap .order-main .address-info {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 20rpx;
+}
+.order-wrap .order-main .help-wrap {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.order-wrap .order-main .help-wrap .help-item {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.order-wrap .order-main .help-wrap .contact {
+  display: flex;
+  justify-content: space-between;
+}
+.order-wrap .order-main .recommend {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #fff;
+}

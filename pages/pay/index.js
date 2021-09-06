@@ -1,66 +1,54 @@
-// pages/pay/index.js
+import {
+  getSetting,
+  chooseAddress,
+  openSetting,
+  showModal,
+  showToast
+} from '../../utils/asyncWx.js';
+// 引入 async 转换成 es5 文件， 只能单个文件进行引入
+import regeneratorRuntime from '../../lib/runtime/runtime';
+
+// pages/cart/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    address: {},
+    cart: [],
+    totalPrice: 0,
+    totalNum: 0
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  // 当页面加载完毕获取地址信息并进行判断显示
+  onShow() {
+    // 获取本地存储中的地址信息
+    const address = wx.getStorageSync('address');
+    // 获取本地存储中的商品信息进行展示 (或者为空数组)
+    let cart = wx.getStorageSync('cart') || []
+    // 只对 被选中的 商品进行过滤
+    cart = cart.filter(v => v.checked)
 
+
+    // 商品总数量和总价格
+    let totalPrice = 0
+    let totalNum = 0
+    // 在本地存储中，如果被选中就进行计算总价格和总数量
+    cart.forEach(v => {
+        totalPrice += v.num * v.goods_price
+        totalNum += v.num
+      })
+
+    this.setData({
+      cart,
+      totalPrice,
+      totalNum,
+      address
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
+  
+  
 })

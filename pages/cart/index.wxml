@@ -1,2 +1,93 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<!-- 添加收货地址 -->
+<view class="address-wrapper">
+    <!-- 显示按钮 -->
+    <view class="add-address" wx:if='{{!address.telNumber}}'>
+        <button class="address-btn" type="primary" plain bindtap='handleChooseAddress'>
+            获取收货地址
+        </button>
+    </view>
+    <!-- 显示地址信息 -->
+    <view class="address-info" wx:else>
+        <!-- 左侧用户信息 -->
+        <view class="user-info">
+            <view class="user-name">收货人: {{address.userName}}</view>
+            <view class="user-address">{{address.allAddress}}</view>
+        </view>
+        <!-- 右侧电话信息 -->
+        <view class="user-phone">
+            {{address.telNumber}}
+        </view>
+    </view>
+</view>
+
+<!-- 购物车信息 -->
+<view class="cart-wrapper">
+    <!-- 购物车标题 -->
+    <view class="cart-title">购物车</view>
+    <!-- 购物车内容 -->
+    <view class="cart-main">
+        <!-- 如果购物车中有商品就显示商品没有商品就显示购物车空的图片 -->
+        <block wx:if='{{cart.length != 0}}'>
+            <view class="cart-item" wx:for='{{cart}}' wx:key='goods_id'>
+                <view class="cart-left-check">
+                    <!-- 左边复选框 -->
+                    <checkbox-group bindchange="handleItemCheck" data-id="{{item.goods_id}}">
+                        <checkbox checked='{{item.checked}}'></checkbox>
+                    </checkbox-group>
+                </view>
+                <!-- 中间图片 -->
+                <view class="cart-center-img">
+                    <image src="{{item.goods_small_logo}}" mode="widthFix" />
+                </view>
+                <!-- 右边商品信息和数量 -->
+                <view class="cart-right-info">
+                    <!-- 商品标题 -->
+                    <view class="goods-title">
+                        {{item.goods_name}}
+                    </view>
+                    <!-- 商品价格和数量 -->
+                    <view class="goods-price-wrapper">
+                        <view class="goods-price">￥{{item.goods_price}}</view>
+                        <!-- 商品数量 -->
+                        <view class="goods-num-wrapper">
+                            <view class="reduce" bindtap='changeNum' data-id="{{item.goods_id}}"
+                                data-operation='{{-1}}'>-</view>
+                            <view class="goods-num">{{item.num}}</view>
+                            <view class="increase" bindtap='changeNum' data-id="{{item.goods_id}}"
+                                data-operation='{{1}}'>+</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <image
+            class="nullImage" 
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0185845d81ddeea8012060be310913.png%401280w_1l_2o_100sh.png&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632713674&t=81bba23cec3f563e64fa92bfa6d1bf56" 
+            mode="widthFix"/>
+        </block>
+    </view>
+</view>
+
+<!-- 底部结算工具 -->
+<view class="foot-tools">
+    <!-- 左侧全选按钮 -->
+    <view class="left-all-check">
+        <checkbox-group bindchange="handleItemAllCheck">
+            <checkbox checked='{{allChecked}}'>
+                全选
+            </checkbox>
+        </checkbox-group>
+    </view>
+    <!-- 中间合计 -->
+    <view class="center-price">
+        <view class="center-total-price">合计:
+            <text class="price">￥ {{totalPrice}}</text>
+        </view>
+        <view class="freight">包含运费</view>
+    </view>
+    <!-- 右侧结算按钮 -->
+    <view class="right-to-buy" bindtap='handleBuy'>
+        结算({{totalNum}})
+    </view>
+</view>

@@ -1,66 +1,61 @@
-// pages/search/index.js
+// 导入请求对象
+import { request } from '../../request/index'
+// 引入 async 转换成 es5 文件， 只能单个文件进行引入
+import regeneratorRuntime from '../../lib/runtime/runtime';
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    goods: [],
+    // 表示按钮是否显示
+    inpShow: false,
+    // 表示输入框中的内容
+    inpValue: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  TimeId: 1,
+  // 当输入框数据发生改变时
+  handleInput(e){
+    let {value} = e.detail
+    // 进行合法校验  trim函数会把空格符取消掉
+    if(!value.trim()){
+      // 说明全是空格符，当没有内容
+      this.setData({
+        inpShow: false,
+        goods: []
+      })
+      return
+    }
+    this.setData({
+      inpShow: true
+    })
+    
+    // 防抖
+    clearTimeout(this.TimeId)
+    this.TimeId = setTimeout(() => {
+      this.qsearch(value)
+    }, 1000)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 发送请求
+  async qsearch(query){
+    let res = await request({
+      url: '/goods/qsearch',
+      data: {query}
+    })
+    this.setData({
+      goods: res
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 当点击取消按钮时将内容清空，并且清空输入框内容
+  handleBtn(){
+    this.setData({
+      inpValue: '',
+      inpShow: false,
+      goods: []
+    })
   }
+
 })

@@ -1,2 +1,30 @@
-<!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+<Tabs tabs='{{tabs}}' bindtabsChange='handleTabsChange'class="tabs">
+    <view class="collect-main">
+        <!-- 收藏标题 -->
+        <view class="collect-title">
+            <text class="title-item active">全部</text>
+            <text class="title-item">正在热卖</text>
+            <text class="title-item">即将上线</text>
+        </view>
+        <!-- 收藏内容 -->
+        <view class="collect-content">
+            <navigator 
+            class="goods-item"
+            wx:for='{{collect}}'
+            wx:key='goods_id'
+            url='/pages/goods_detail/index?goods_id={{item.goods_id}}'>
+                <!-- 左侧图片 -->
+                <view class="goods-item-wrap">
+                    <!-- 如果没有图片就使用其他图片进行替代 -->
+                    <image  src="{{item.goods_small_logo ? item.goods_small_logo: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fec.suntruk.com%2Fportal%2Fec2018V1%2Fimage%2Fempty.png&refer=http%3A%2F%2Fec.suntruk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632364541&t=cfd0a309a2d590965e4a34c6c7fa4e95'}}" 
+                    mode='widthFix'/>
+                </view>
+                <!-- 右侧信息 -->
+                <view class="goods-info-wrap">
+                    <view class="goods-info-title">{{item.goods_name}}</view>
+                    <view class="goods-info-price">￥{{item.goods_price}}</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</Tabs>
